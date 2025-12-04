@@ -1,3 +1,5 @@
+package BasicJavaAct3;
+
 
 import java.util.Scanner;
 

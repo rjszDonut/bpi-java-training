@@ -1,0 +1,3 @@
+#ignore all .classpath & .project
+.classpath
+.project

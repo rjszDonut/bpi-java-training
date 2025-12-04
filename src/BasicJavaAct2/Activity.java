@@ -1,4 +1,4 @@
-package act;
+package BasicJavaAct2;
 
 import java.util.Scanner;
 

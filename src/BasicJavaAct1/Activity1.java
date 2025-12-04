@@ -1,3 +1,4 @@
+package BasicJavaAct1;
 import java.util.Scanner;
 
 public class Activity1 {

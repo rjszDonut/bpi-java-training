@@ -1,3 +1,5 @@
+package BasicJavaAct4;
+
 
 import java.util.Scanner;
 
