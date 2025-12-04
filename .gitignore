@@ -1,3 +1,6 @@
 #ignore all .classpath & .project
 .classpath
 .project
+
+#ignore /bin/
+/bin/
