@@ -4,3 +4,6 @@
 
 #ignore /bin/
 /bin/
+
+# ignore activity2
+src/com/activity2/
