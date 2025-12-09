@@ -15,7 +15,7 @@ public class MainApp {
     }
 
 
-    public static void destroyVehicle(Car car) {
+    public static void destroyVehicle(Vehicle car) {
         car.destroy();
     }
 }
