@@ -26,9 +26,8 @@ public class BankAccount {
 
     public static void testCase(String accountNumber) {
         try {
-            String name = getAccountName(accountNumber);
-
-            name.toUpperCase();
+            String name;
+            name = getAccountName(accountNumber).toUpperCase();
 
             System.out.println("Account holder: " + name);
         } catch (NullPointerException e) {
