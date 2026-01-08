@@ -36,7 +36,7 @@ public class ATMSystem {
             System.out.println("Withdrawal: ₱" + amount);
 
             if (amount > balance) {
-                System.out.println("Insufficient Funds! Cannot withdraw \u20B1" + amountInput);
+                System.out.println("Insufficient Funds! Cannot withdraw \u20B1" + amount);
             } else {
                 Double newBalance = balance - amount;
                 System.out.println("New balance: \u20B1" + newBalance);
