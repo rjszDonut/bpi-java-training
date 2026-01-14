@@ -1,4 +1,4 @@
-package com.activity6;
+package com.activity7;
 
 @FunctionalInterface
 public interface BankTestOperation {
