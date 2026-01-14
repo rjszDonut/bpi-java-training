@@ -1,0 +1,23 @@
+2026-01-14 15:51:16.017 [INFO] com.activity8.BankAccount - Deposit requested: ₱5000.0
+2026-01-14 15:51:16.020 [INFO] com.activity8.BankAccount - Deposit completed: ₱5000.0, New balance: ₱15000.0
+2026-01-14 15:51:16.020 [INFO] com.activity8.BankAccount - Withdrawal requested: ₱3000.0
+2026-01-14 15:51:16.021 [INFO] com.activity8.BankAccount - Withdrawal completed: ₱3000.0 New Balance: ₱12000.0
+2026-01-14 15:51:16.022 [INFO] com.activity8.BankAccount - Deposit requested: ₱-500.0
+2026-01-14 15:51:16.022 [ERROR] com.activity8.BankAccount - Invalid deposit amount: ₱-500.0
+2026-01-14 15:51:16.023 [ERROR] com.activity8.MainApp - Deposit failed: Deposit amount must be positive
+com.activity8.InvalidAmountException: Deposit amount must be positive
+	at com.activity8.BankAccount.deposit(BankAccount.java:32)
+	at com.activity8.MainApp.lambda$2(MainApp.java:14)
+	at com.activity8.MainApp.runTest(MainApp.java:22)
+	at com.activity8.MainApp.main(MainApp.java:14)
+2026-01-14 15:51:16.025 [INFO] com.activity8.BankAccount - Withdrawal requested: ₱20000.0
+2026-01-14 15:51:16.027 [WARN] com.activity8.BankAccount - Insufficient funds: ₱12000.0 available
+2026-01-14 15:51:16.028 [ERROR] com.activity8.MainApp - Withdrawal failed: Insufficient funds for wtihdrawal!
+com.activity8.InsufficientFundsException: Insufficient funds for wtihdrawal!
+	at com.activity8.BankAccount.withdraw(BankAccount.java:20)
+	at com.activity8.MainApp.lambda$3(MainApp.java:15)
+	at com.activity8.MainApp.runTest(MainApp.java:22)
+	at com.activity8.MainApp.main(MainApp.java:15)
+2026-01-14 15:51:16.028 [INFO] com.activity8.BankAccount - Deposit requested: ₱60000.0
+2026-01-14 15:51:16.028 [WARN] com.activity8.BankAccount - Large deposit: ₱60000.0 - requires verification
+2026-01-14 15:51:16.028 [INFO] com.activity8.BankAccount - Deposit completed: ₱60000.0, New balance: ₱72000.0
