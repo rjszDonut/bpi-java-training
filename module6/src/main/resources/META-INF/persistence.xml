@@ -13,6 +13,7 @@
         <!-- Entity classes (optional, can be auto-scanned) -->
         <!-- <class>com.example.MyEntity</class> -->
          <class>com.bpi.model.Student</class>
+         <class>com.bpi.model.Courses</class>
         
 		<!-- If false, Include all entity classes automatically -->
         <!-- <exclude-unlisted-classes>false</exclude-unlisted-classes> -->

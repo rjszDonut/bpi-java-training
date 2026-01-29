@@ -1,5 +1,6 @@
 package com.bpi;
 
+import com.bpi.model.Courses;
 import com.bpi.model.Student;
 import com.bpi.util.EntityManagerUtil;
 
@@ -10,29 +11,32 @@ public class App {
         EntityManager em = EntityManagerUtil.getInstance().createEntityManager();
 
         try {
-            runM6Activity2(em);
+            persistOneToMany(em);
         } finally {
             EntityManagerUtil.getInstance().closeEntityManager(em);
             EntityManagerUtil.getInstance().shutdownFactory();
         }
     }
 
-    static void runM6Activity2(EntityManager em) {
+    static void persistOneToMany(EntityManager em) {
+		em.getTransaction().begin();
+		
+		Student student1 = em.find(Student.class, 9L);
+		
+		Courses newCourse = new Courses();
+		newCourse.setCourse_name("Mathematics");
+		newCourse.setGrade(85);
+		newCourse.setStudent(student1);
+		em.persist(newCourse);
 
-        try {
-            em.getTransaction().begin();
+        Courses newCourse1 = new Courses();
+        newCourse1.setCourse_name("English");
+		newCourse1.setGrade(92);
+		newCourse1.setStudent(student1);
+		em.persist(newCourse1);
 
-            Student newStudent = new Student();
-            newStudent.setName("Kaga Nazuna");
-            newStudent.setAge(22);
-            newStudent.setEmail("nazupi@example.com");
+		em.getTransaction().commit();
+	}
 
-            em.persist(newStudent);
-            em.getTransaction().commit();
-        } catch (Exception e) {
-            System.err.println("Error: " + e.getMessage());
-        }
-
-    }
 
 }

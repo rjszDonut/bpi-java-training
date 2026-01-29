@@ -1,10 +1,13 @@
 package com.bpi.model;
 
+import java.util.List;
+
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 
 @Entity
@@ -24,6 +27,10 @@ public class Student {
 
     @Column(name = "email", unique=true, length=100, columnDefinition="VARCHAR(100)")
     private String email;
+
+    @OneToMany(mappedBy = "student")
+	private List<Courses> courses;
+
 
     // getters & setters
 
