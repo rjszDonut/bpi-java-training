@@ -5,35 +5,55 @@ import com.bpi.model.Student;
 import com.bpi.util.EntityManagerUtil;
 
 import jakarta.persistence.EntityManager;
+import jakarta.persistence.EntityTransaction;
 
 public class App {
     public static void main(String[] args) {
         EntityManager em = EntityManagerUtil.getInstance().createEntityManager();
 
         try {
-            persistOneToMany(em);
+            crudOperations(em);
         } finally {
             EntityManagerUtil.getInstance().closeEntityManager(em);
             EntityManagerUtil.getInstance().shutdownFactory();
         }
     }
 
-    static void persistOneToMany(EntityManager em) {
-		em.getTransaction().begin();
-		
-		Student student1 = em.find(Student.class, 9L);
-		
-		Courses newCourse = new Courses();
-		newCourse.setCourse_name("Mathematics");
-		newCourse.setGrade(85);
-		newCourse.setStudent(student1);
-		em.persist(newCourse);
+    static void crudOperations(EntityManager em) {
+        EntityTransaction txn = em.getTransaction();
 
-        Courses newCourse1 = new Courses();
-        newCourse1.setCourse_name("English");
-		newCourse1.setGrade(92);
-		newCourse1.setStudent(student1);
-		em.persist(newCourse1);
+		txn.begin();
+		
+        Student newStudent = new Student();
+        newStudent.setName("Komori Meto");
+        newStudent.setAge(18);
+        newStudent.setEmail("meto@example.com");
+        
+        // persist to context
+        em.persist(newStudent);
+
+        // calls flush
+        em.flush();
+
+        em.detach(newStudent);
+        
+        System.out.println("is newStudent inside the persistence context: " + em.contains(newStudent));
+        
+        Student student = em.find(Student.class, 16L);
+        em.merge(student);
+
+        student.setAge(21);
+        student.setEmail("messan@example.com");
+
+        em.flush();
+
+        System.out.println("is newStudent inside the persistence context: " + em.contains(student));
+        
+        em.remove(student);
+
+        em.flush();
+
+        System.out.println("is newStudent inside the persistence context: " + em.contains(student));
 
 		em.getTransaction().commit();
 	}
